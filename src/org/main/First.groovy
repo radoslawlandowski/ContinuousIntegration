@@ -15,8 +15,7 @@ class First {
        return scriptsDir
    }
 
-   String runScript(filepath) {
-        def command = "powershell -File /var/lib/jenkins/workspace/ContinuousIntegrationExperiments/src/org/main/script.ps1"
+   String runScript(command) {
         def sw = new StringWriter()
 
         Process p = command.execute()
