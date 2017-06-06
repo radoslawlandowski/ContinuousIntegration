@@ -1,6 +1,6 @@
 package org.main;
 
-class Example {
+class First {
    def Hello() {
         println "Hello!"
    }
