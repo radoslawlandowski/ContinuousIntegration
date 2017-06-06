@@ -1,13 +1,26 @@
 package org.main;
 
 class First {
-   float x = 10, y = 5, z = 1
-
-   int sumUp() {
-       return x + y + z
-   } 
-
-   int printSth() {
-       println 4
+   String powershellCommandPrefix = "powershell "
+   String scriptName = "script.ps1"
+   
+   String getRootDirectory() {
+       return new File("").getAbsolutePath();
    }
+
+   String getScriptsDirectory() {
+       def rootDir = getRootDirectory()
+       def scriptsDir = rootDir + "/src/org/main/"
+
+       return scriptsDir
+   }
+
+   String runScript() {
+       def command = powershellCommandPrefix + getScriptsDirectory() + scriptName
+
+       def proc = command.execute()
+       proc.waitForProcessOutput(System.out, System.err)
+   }
+
+   runScript()
 }
