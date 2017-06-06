@@ -15,8 +15,8 @@ class First {
        return scriptsDir
    }
 
-   String runScript() {
-       def command = this.powershellCommandPrefix + getScriptsDirectory() + this.scriptName
+   String runScript(filepath) {
+       def command = "powershell "+ filepath
        println command
        def proc = command.execute()
        proc.waitForProcessOutput(System.out, System.err)
