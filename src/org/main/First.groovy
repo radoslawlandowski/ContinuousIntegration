@@ -16,9 +16,15 @@ class First {
    }
 
    String runScript(filepath) {
-       def command = "powershell /var/lib/jenkins/workspace/ContinuousIntegrationExperiments/src/org/main/script.ps1"
-       println command
-       def proc = command.execute()
-       proc.waitForProcessOutput(System.out, System.err)
+        def command = "powershell -File /var/lib/jenkins/workspace/ContinuousIntegrationExperiments/src/org/main/script.ps1"
+        def sw = new StringWriter()
+
+        Process p = command.execute()
+        p.consumeProcessOutputStream(sw)
+        p.waitForOrKill(100000)
+
+        def processOutput = sw.toString()
+        println processOutput
+        return processOutput
    }
 }
