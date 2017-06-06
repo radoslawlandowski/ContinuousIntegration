@@ -8,6 +8,6 @@ class First {
    } 
 
    int printSth() {
-       println sumUp()
+       println 4
    }
 }
