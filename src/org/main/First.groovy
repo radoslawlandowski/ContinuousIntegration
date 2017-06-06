@@ -21,6 +21,4 @@ class First {
        def proc = command.execute()
        proc.waitForProcessOutput(System.out, System.err)
    }
-
-   runScript()
 }
