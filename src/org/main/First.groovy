@@ -17,11 +17,14 @@ class First {
         return processOutput
    }
 
+   String createFile(filename, path) {
+     def file = new File("./${filename}")
+     file.write("");
+   }
+
    String runCopyScript(filename, source, dest) {
        def copyScriptWithArgs = "${copyScript} \"${filename}\" \"${source}\" \"${dest}\" *> \"copy-script.log\""
 
-       println copyScriptWithArgs
-
-       return runScript(copyScriptWithArgs)
+       return runScript("New-Item c.txt -type file")
    }
 }
