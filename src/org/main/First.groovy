@@ -18,7 +18,7 @@ class First {
    }
 
    String createFile(filename, path) {
-     println "hahahahaha"
+     return "hahahahaha"
    }
 
    String runCopyScript(filename, source, dest) {
