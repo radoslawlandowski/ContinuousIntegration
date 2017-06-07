@@ -1,22 +1,10 @@
 package org.main;
 
 class First {
-   String copyScript = "/var/lib/jenkins/workspace/ContinuousIntegrationExperiments/src/org/main/copy-script.ps1"
-   
-   String getRootDirectory() {
-       return new File("").getAbsolutePath();
-   }
-
-   String getScriptsDirectory() {
-       def rootDir = getRootDirectory()
-       def scriptsDir = rootDir + "/src/org/main/"
-
-       return scriptsDir
-   }
+   String copyScript = "./src/org/main/copy-script.ps1"
 
    String runScript(scriptInvocation) {
-
-        def command = "powershell ${scriptInvocation}\""
+        def command = "powershell ${scriptInvocation}"
 
         def sw = new StringWriter()
 
@@ -30,7 +18,9 @@ class First {
    }
 
    String runCopyScript(filename, source, dest) {
-       def copyScriptWithArgs = "$copyScript $filename $source $dest"
+       def copyScriptWithArgs = "${copyScript} \"${filename}\" \"${source}\" \"${dest}\" *> \"copy-script.log\""
+
+       println copyScriptWithArgs
 
        return runScript(copyScriptWithArgs)
    }
