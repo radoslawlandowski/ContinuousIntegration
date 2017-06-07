@@ -1,7 +1,7 @@
 package org.main;
 
 class First {
-   String copyScript = "copy-script.ps1"
+   String copyScript = "/var/lib/jenkins/workspace/ContinuousIntegrationExperiments/src/org/main/copy-script.ps1"
    
    String getRootDirectory() {
        return new File("").getAbsolutePath();
