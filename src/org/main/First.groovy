@@ -18,8 +18,7 @@ class First {
    }
 
    String createFile(filename, path) {
-     def file = new File("./${filename}")
-     file.write("");
+     println "hahahahaha"
    }
 
    String runCopyScript(filename, source, dest) {
