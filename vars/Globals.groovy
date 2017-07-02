@@ -10,6 +10,6 @@ class Globals implements Serializable {
         name
     }
     def caution(message) {
-        echo "Hello, ${name}! CAUTION: ${message}"
+        return "Hello, ${name}! CAUTION: ${message}"
     }
 }
